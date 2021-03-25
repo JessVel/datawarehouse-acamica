@@ -12,4 +12,4 @@ const CompanyModel = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("country", CompanyModel);
+module.exports = mongoose.model("company", CompanyModel);

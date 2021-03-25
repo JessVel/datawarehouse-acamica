@@ -5,7 +5,7 @@ const { check } = require("express-validator");
 
 router.post(
   "/",
-  [check("user", "User is required").not().isEmpty(), check("email", "Provide a valid email").isEmail(), check("password", "Password must have at least 6 caracters").isLength({ min: 6 })],
+  [check("name", "Name is required").not().isEmpty(), check("email", "Provide a valid email").isEmail(), check("password", "Password must have at least 6 caracters").isLength({ min: 6 })],
   userController.createUser
 );
 

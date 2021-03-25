@@ -11,6 +11,10 @@ const ContactModel = mongoose.Schema({
     require: true,
     trim: true,
   },
+  role: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "role",
+  },
   country: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "country",
