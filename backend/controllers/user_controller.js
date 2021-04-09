@@ -69,3 +69,39 @@ exports.getUser = async (req, res) => {
     res.status(500).send("There's been an error");
   }
 };
+
+exports.editUser = async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { name, lastname, email, password, isAdmin } = req.body;
+    const editUser = {};
+
+    if (name) {
+      editUser.name = name;
+    }
+    if (lastname) {
+      editUser.lastname = lastname;
+    }
+    if (email) {
+      editUser.email = email;
+    }
+    if (password) {
+      editUser.password = password;
+    }
+    if (isAdmin) {
+      editUser.isAdmin = isAdmin;
+    }
+
+    let user = await UserModel.findById(req.params.id);
+    user = await UserModel.findByIdAndUpdate({ _id: req.params.id }, { $set: editUser }, { new: true });
+
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send("There's been an error");
+  }
+};

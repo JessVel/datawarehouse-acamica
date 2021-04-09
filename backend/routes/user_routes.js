@@ -11,4 +11,8 @@ router.post(
 
 router.get("/", userController.getUser);
 
+router.post("/", userController.createUser);
+
+router.put("/:id", userController.editUser);
+
 module.exports = router;
