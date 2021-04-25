@@ -38,6 +38,7 @@ app.use("/api/city", require("./routes/city_routes"));
 app.use("/api/role", require("./routes/role_routes"));
 app.use("/api/channel", require("./routes/channel_routes"));
 app.use("/api/company", require("./routes/company_routes"));
+app.use('/api/dummy', require("./routes/dummy_routes"))
 
 app.listen(PORT, () => {
   console.log(`Server running in ${PORT}`);
